@@ -69,6 +69,7 @@
 				.form-control {
 					margin: 0;
 					position: relative;
+					overflow: hidden;
 
 					label {
 						margin-bottom: 5px;
@@ -220,10 +221,71 @@
 					}
 
 					.hidden-field {
-						display: none;
 						position: relative;
-						// top: 50px;
+						left: 1999px;
 						width: 100%;
+					}
+
+					.slide-right {
+						animation: slideRight 1s forwards;
+						@include cubicTransition();
+					}
+
+					@keyframes slideRight {
+						0% {
+							left: 1999px;
+						}
+						100% {
+							left: 0px;
+						}
+					}
+
+					.slide-right-p2 {
+						animation: slideRightP2 1s forwards;
+						@include cubicTransition();
+					}
+
+					@keyframes slideRightP2 {
+						0% {
+							left: 0px;
+						}
+						100% {
+							left: 1999px;
+						}
+					}
+				}
+
+				.mail,
+				.phone,
+				.message,
+				.btn {
+					position: relative;
+					top: -88px;
+				}
+
+				.slide-down-p1 {
+					animation: slideDown 1s forwards;
+					@include cubicTransition();
+				}
+				@keyframes slideDown {
+					0% {
+						top: -88px;
+					}
+					100% {
+						top: 0px;
+					}
+				}
+
+				.slide-down-p2 {
+					animation: slideDownP2 1s forwards;
+					@include cubicTransition();
+				}
+				@keyframes slideDownP2 {
+					0% {
+						top: 0;
+					}
+					100% {
+						top: -88px;
 					}
 				}
 

@@ -17,6 +17,10 @@ var messagesRef = firebase.database().ref('messages');
 
 const form = document.getElementById('form'),
 	name = document.getElementById('name'),
+	sbdy = document.getElementById('box-1'),
+	assoc = document.getElementById('box-2'),
+	corp = document.getElementById('box-3'),
+	entity = document.getElementById('entity'),
 	email = document.getElementById('email'),
 	phone = document.getElementById('phone'),
 	phone2 = document.querySelector('.form-control:nth-child(4)'),
@@ -54,24 +58,26 @@ form.addEventListener('submit', e => {
 
 function checkInputs() {
 	// Get values from inputs. Trim() remove white spaces
-	const nameValue = name.value.trim(),
-		entityValue = entity.value.trim(),
+	const nameValue = name.value,
+		// sbdyValue = sbdy.value,
+		// entityValue = entity.value,
 		emailValue = email.value.trim(),
 		phoneValue = phone.value.trim(),
-		msgValue = msg.value.trim();
+		msgValue = msg.value;
 
 	if (nameValue === '') {
 		// show error & add error class
-		setErrorFor(name, 'Veuillez renseigner un nom svp');
+		setErrorFor(name, 'Veuillez renseigner votre nom svp');
 	} else {
 		// add success class
 		setSuccessFor(name);
 	}
 
-	// if (entityValue === '') {
+	// if ((entityValue === '' && assoc.checked === true) || corp.checked === true) {
 	// 	// show error & add error class
 	// 	setErrorFor(entity, 'Veuillez renseigner un nom svp');
 	// } else {
+	// 	// add success class
 	// 	setSuccessFor(entity);
 	// }
 
@@ -115,13 +121,13 @@ function setErrorFor(input, message) {
 	small.innerText = message;
 
 	// add error class
-	formControl.className = 'form-control error';
+	formControl.classList.add('error');
 }
 
 // add success class to form-control
 function setSuccessFor(input) {
 	const formControl = input.parentElement;
-	formControl.className = 'form-control success';
+	formControl.classList.add('success');
 
 	// Show validation alert
 	document.querySelector('.alert').style.display = 'block';
@@ -151,25 +157,29 @@ function submitForm() {
 	var email = getInputVal('email');
 	var phone = getInputVal('phone');
 	var msg = getInputVal('msg');
-	var checkedValue = document.getElementById('box-1').checked;
+	var checks = document.getElementsByClassName('checks');
+	var type = '';
 
-	if (checkedValue === true) {
-		checkedValue === 'Particulier';
-		console.log(checkedValue);
+	// Get value of checked checkbox with for loop
+	for (i = 0; i < checks.length; i++) {
+		if (checks[i].checked === true) {
+			type += checks[i].value + ' ';
+		}
 	}
+	// console.log(type);
 
 	// Save message
-	saveMessage(name, checkedValue, entity, email, phone, msg);
+	saveMessage(name, type, entity, email, phone, msg);
 }
 
 // Save message to firebase
-function saveMessage(name, checkedValue, entity, email, phone, msg) {
+function saveMessage(name, type, entity, email, phone, msg) {
 	var newMessageRef = messagesRef.push();
 
 	// send an object of data to message collection in firebase
 	newMessageRef.set({
 		name: name,
-		checkedValue: checkedValue,
+		type: type,
 		entity: entity,
 		email: email,
 		phone: phone,

@@ -155,36 +155,65 @@ function spinOff() {
 		getCogs[i].classList.remove('fa-spin');
 	}
 }
+
 // Contact form checkboxes function
-const inputEntity = document.querySelector('.hidden-field'),
+const EntityInput = document.querySelector('.hidden-field'),
 	labelChange = document.querySelector('.label-change'),
 	checkPerso = document.querySelector('input[id="box-1"]'),
 	checkAssoc = document.querySelector('input[id="box-2"]'),
-	checkCorp = document.querySelector('input[id="box-3"]');
+	checkCorp = document.querySelector('input[id="box-3"]'),
+	slideDownAnimation = document.querySelectorAll('.sda');
+
+// console.log(checks);
 
 checkPerso.addEventListener('click', checkHidePerso);
 checkAssoc.addEventListener('click', checkDisplayAssoc);
 checkCorp.addEventListener('click', checkDisplayCorp);
 
 function checkHidePerso() {
-	if (checkPerso.checked == true) {
-		inputEntity.style.display = 'none';
-	}
+	slideDownAnimation.forEach(item => {
+		item.classList.add('slide-down-p2');
+		item.classList.remove('slide-down-p1');
+	});
+	EntityInput.classList.add('slide-right-p2');
+	EntityInput.classList.remove('error');
 }
+
+// display hidden input and move down following inputs when click on assoc
 function checkDisplayAssoc() {
-	if (checkAssoc.checked == true) {
-		inputEntity.style.display = 'block';
-		labelChange.innerText = "Comment s'appelle votre association ?";
-	} else {
-		inputEntity.style.display = 'none';
+	EntityInput.classList.remove('slide-right-p2');
+	EntityInput.classList.remove('slide-right');
+	EntityInput.classList.toggle('slide-right');
+	labelChange.innerText = "Comment s'appelle votre association ?";
+	slideDownAnimation.forEach(item => {
+		item.classList.remove('slide-down-p2');
+		item.classList.add('slide-down-p1');
+	});
+
+	if (checkAssoc.checked == false) {
+		EntityInput.classList.add('slide-right-p2');
+		slideDownAnimation.forEach(item => {
+			item.classList.add('slide-down-p2');
+		});
 	}
 }
+
+// display hidden input and move down following inputs when click on corp
 function checkDisplayCorp() {
-	if (checkCorp.checked == true) {
-		inputEntity.style.display = 'block';
-		labelChange.innerText = "Comment s'appelle votre entreprise ?";
-	} else {
-		inputEntity.style.display = 'none';
+	EntityInput.classList.remove('slide-right-p2');
+	EntityInput.classList.remove('slide-right');
+	EntityInput.classList.toggle('slide-right');
+	labelChange.innerText = "Comment s'appelle votre entreprise ?";
+	slideDownAnimation.forEach(item => {
+		item.classList.remove('slide-down-p2');
+		item.classList.add('slide-down-p1');
+	});
+
+	if (checkCorp.checked == false) {
+		EntityInput.classList.add('slide-right-p2');
+		slideDownAnimation.forEach(item => {
+			item.classList.add('slide-down-p2');
+		});
 	}
 }
 

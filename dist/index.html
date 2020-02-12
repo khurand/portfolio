@@ -373,7 +373,7 @@
             <div class="form-control entity">
               <div class="checkboxes">
                 <div class="check">
-                  <input type="checkbox" value="1" id="box-1" onclick="onlyOne(this)" checked>
+                  <input type="checkbox" value="Particulier" id="box-1" class="checks" onclick="onlyOne(this)" checked>
                   <label for="box-1">
                     <span></span>
                     Particulier
@@ -381,7 +381,7 @@
                   </label>
                 </div>                
                 <div class="check">
-                  <input type="checkbox" value="2" id="box-2" onclick="onlyOne(this)">
+                  <input type="checkbox" value="Association" id="box-2" class="checks" onclick="onlyOne(this)">
                   <label for="box-2">
                     <span></span>
                     Association
@@ -389,7 +389,7 @@
                   </label>
                 </div>                
                 <div class="check">
-                  <input type="checkbox" value="3" id="box-3" onclick="onlyOne(this)">
+                  <input type="checkbox" value="Professionnel" id="box-3" class="checks" onclick="onlyOne(this)">
                   <label for="box-3">
                     <span></span>
                     Entreprise
@@ -405,28 +405,28 @@
                 <small>Error Message</small>
               </div>
             </div>
-            <div class="form-control email">
+            <div class="form-control sda mail">
               <label for="">Mail *</label>
               <input type="email" name="email" id="email">
               <i class="fas fa-check-circle"></i>
               <i class="fas fa-exclamation-circle"></i>
               <small>Error Message</small>
             </div>
-            <div class="form-control phone">
+            <div class="form-control sda phone">
               <label for="">Téléphone</label>
               <input type="text" name="phone" id="phone">
               <i class="fas fa-check-circle"></i>
               <i class="fas fa-exclamation-circle"></i>
               <small>Error Message</small>
             </div>
-            <div class="form-control full">
+            <div class="form-control sda message full">
               <label for="">Message *</label>
               <textarea name="message" rows="5" id="msg"></textarea>
               <i class="fas fa-check-circle"></i>
               <i class="fas fa-exclamation-circle"></i>
               <small>Error Message</small>
             </div>
-            <div class="full">
+            <div class="btn sda full">
               <button type="submit">Envoyer</button>
             </div>
           </form>
