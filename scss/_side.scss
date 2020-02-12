@@ -1,0 +1,107 @@
+.left-side-container {
+	width: 40px;
+	height: 50%;
+	position: fixed;
+	bottom: 0px;
+	left: 50px;
+	right: auto;
+	z-index: 10;
+	color: rgb(168, 178, 209);
+
+	.social-list {
+		display: flex;
+		flex-direction: column;
+		-webkit-box-align: center;
+		align-items: center;
+		padding: 0px;
+		margin: 0px;
+		list-style: none;
+
+		&:after {
+			content: '';
+			display: block;
+			width: 2px;
+			height: 90px;
+			background-color: rgb(168, 178, 209);
+			margin: 0px auto;
+		}
+
+		li {
+			display: list-item;
+			text-align: -webkit-match-parent;
+			margin-bottom: 25px;
+
+			&:last-of-type {
+				margin-bottom: 30px;
+			}
+
+			.social-link {
+				padding: 10px;
+				display: inline-block;
+				text-decoration-skip-ink: auto;
+				color: inherit;
+				position: relative;
+				cursor: pointer;
+				text-decoration: none;
+				@include cubicTransition();
+
+				&:hover {
+					color: $third-color;
+					@include cubicTransition();
+					transform: translateY(-5px);
+				}
+
+				.fab {
+					font-size: 1.3rem;
+				}
+			}
+		}
+	}
+}
+
+.right-side-container {
+	width: 40px;
+	height: 50%;
+	position: fixed;
+	bottom: 0px;
+	left: auto;
+	right: 40px;
+	z-index: 10;
+	color: rgb(168, 178, 209);
+
+	.email {
+		display: flex;
+		flex-direction: column;
+		-webkit-box-align: center;
+		align-items: center;
+		position: relative;
+
+		&:after {
+			content: '';
+			display: block;
+			width: 2px;
+			height: 175px;
+			background-color: rgb(168, 178, 209);
+			margin: 0px auto;
+		}
+
+		.address {
+			font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono',
+				'Lucida Console', Monaco, monospace;
+			font-size: 0.85rem;
+			letter-spacing: 0.1em;
+			-webkit-writing-mode: vertical-rl;
+			writing-mode: vertical-rl;
+			margin: 20px auto;
+			padding: 10px;
+			text-decoration: none;
+			color: inherit;
+			@include cubicTransition();
+
+			&:hover {
+				color: $third-color;
+				transform: translateY(-5px);
+			}
+		}
+	}
+}
