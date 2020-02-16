@@ -1,0 +1,221 @@
+.light {
+	#header {
+		background-color: $bkg-light-mode;
+
+		.navbar {
+			color: $light-mode-text-color;
+
+			.logo a {
+				color: $primary-color;
+			}
+
+			.list-items:hover {
+				color: $light-mode-blue !important;
+			}
+			a {
+				&:before {
+					color: $light-mode-blue !important;
+				}
+			}
+
+			.cv {
+				a:hover {
+					color: $light-mode-blue !important ;
+				}
+			}
+			.cv-btn {
+				border: 1px solid $light-mode-blue !important;
+			}
+		}
+
+		.btn-line {
+			background: $light-mode-text-color !important;
+		}
+
+		.close {
+			.btn-line {
+				background: $bkg-light-mode !important;
+			}
+		}
+	}
+
+	.left-side-container {
+		color: rgb(168, 178, 209) !important;
+		.social-link:hover {
+			color: $light-mode-blue !important;
+		}
+	}
+
+	.right-side-container {
+		color: rgb(168, 178, 209) !important;
+
+		a:hover {
+			color: $light-mode-blue !important;
+		}
+	}
+
+	#container {
+		background: $bkg-light-mode;
+		.heading {
+			color: $light-mode-text-color !important;
+
+			&:before {
+				color: $light-mode-blue !important;
+			}
+		}
+		#home {
+			.lg-heading {
+				background: #fff;
+				color: $primary-color;
+				span {
+					color: $light-mode-blue;
+				}
+			}
+		}
+
+		#services {
+			.service-box {
+				color: $light-mode-text-color;
+				border: 1px solid $light-mode-blue;
+
+				&:hover {
+					// Gestion projets
+					.fa-lightbulb {
+						animation: glow2 1.5s alternate infinite 0.3s;
+
+						@keyframes glow2 {
+							from {
+								text-shadow: 0 0 10px #488e96, 0 0 20px #488e96,
+									0 0 30px #91b7a8;
+							}
+							to {
+								text-shadow: 0 0 20px #39a2ae, 0 0 30px #39a2ae,
+									0 0 50px #326369;
+							}
+						}
+					}
+				}
+			}
+
+			.service-icon {
+				color: $light-mode-blue;
+			}
+		}
+
+		#about-me {
+			color: $primary-color;
+
+			li:before {
+				color: $light-mode-blue;
+			}
+		}
+
+		#works {
+			.work-info {
+				h4 {
+					color: $light-mode-blue !important;
+				}
+				h5 {
+					a {
+						color: $primary-color;
+
+						&:hover {
+							color: $light-mode-blue;
+						}
+					}
+				}
+			}
+		}
+
+		#contact {
+			color: $light-mode-text-color;
+
+			input {
+				color: $primary-color;
+			}
+
+			input[type='checkbox'] {
+				& + label {
+					color: $light-mode-text-color;
+					& > span {
+						border: 2px solid $light-mode-text-color;
+					}
+				}
+				& + label:hover > span,
+				&:focus + label > span {
+					background: rgba(255, 255, 255, 0.1);
+				}
+
+				& + label:hover,
+				&:focus + label {
+					color: $light-mode-blue;
+				}
+
+				&:checked + label > span {
+					border: 0.5em solid $bkg-light-mode;
+
+					&:before {
+						border-right: 3px solid $light-mode-blue;
+						border-bottom: 3px solid $light-mode-blue;
+					}
+					@keyframes checkbox-check {
+						0% {
+							width: 0;
+							height: 0;
+							border-color: $light-mode-blue;
+							transform: translate3d(0, 0, 0) rotate(45deg);
+						}
+						33% {
+							width: 0.2em;
+							height: 0;
+							transform: translate3d(0, 0, 0) rotate(45deg);
+						}
+						100% {
+							width: 0.2em;
+							height: 0.5em;
+							border-color: $light-mode-blue;
+							transform: translate3d(0, -0.5em, 0) rotate(45deg);
+						}
+					}
+				}
+			}
+
+			button,
+			input,
+			textarea {
+				&:focus,
+				&:hover,
+				&:active {
+					border: 1px solid $light-mode-blue;
+				}
+			}
+
+			.btn {
+				button {
+					background: transparent;
+					color: $light-mode-blue;
+					border: 2px solid $light-mode-blue !important;
+					border: 0;
+
+					&:hover,
+					&:focus {
+						background: $light-mode-blue;
+						color: #fff;
+						outline: 0;
+						transition: background-color 0.3s ease-out;
+					}
+				}
+			}
+		}
+
+		#footer {
+			background: linear-gradient(to top, $light-mode-blue, #ffffff);
+
+			.credits {
+				a:hover {
+					color: $light-mode-blue;
+				}
+			}
+		}
+	}
+}

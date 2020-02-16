@@ -123,7 +123,6 @@
 
 		// Burger menu
 		.burger {
-			// display: inline-block;
 			display: none;
 			z-index: 11;
 			position: relative;
@@ -180,12 +179,13 @@
 			align-items: center;
 			flex-direction: column;
 			background-color: $secondary-color;
-			position: relative;
+			position: absolute;
 			right: 0px;
 			margin-left: auto;
 			box-shadow: -10px 0px 30px -15px rgba(2, 12, 27, 0.7);
 			padding: 50px;
 			opacity: 0.95;
+			z-index: 122;
 
 			// nav
 			.nav-links {
@@ -196,8 +196,6 @@
 				text-align: center;
 				color: rgb(219, 214, 214);
 				width: 100%;
-				transform: translateX(120%);
-				@include cubicTransition();
 
 				// ol
 				.nav-list {
@@ -212,8 +210,6 @@
 						font-size: 18px;
 						counter-increment: item 1;
 						margin: 0 auto 20px;
-						transform: translateX(120%);
-						@include cubicTransition();
 
 						// a
 						.list-link {
@@ -224,7 +220,6 @@
 							width: 100%;
 							text-decoration: none;
 							padding: 3px 20px 20px;
-							@include cubicTransition();
 
 							&:before {
 								display: block;
@@ -236,17 +231,6 @@
 								width: 100%;
 								text-align: center;
 							}
-						}
-					}
-
-					@keyframes navLinkFade {
-						from {
-							opacity: 0;
-							transform: translateX(-50px);
-						}
-						to {
-							opacity: 1;
-							transform: translateX(0px);
 						}
 					}
 				}
@@ -279,18 +263,6 @@
 						color: #fff;
 					}
 				}
-
-				// .nav-active {
-				// 	transform: translateX(0%);
-				// }
-
-				// .burger-content {
-				// 	display: block;
-				// }
-			}
-			.nav-active {
-				transition-delay: 0.3s;
-				transform: translateX(0%);
 			}
 		}
 	}

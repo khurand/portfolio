@@ -39,11 +39,8 @@ form.addEventListener('submit', e => {
 	//else there are at min 3 or more valid inputs, form is valid then send message to firebase database
 	if (inputsError.length >= 1) {
 		document.querySelector('.alert').style.display = 'none';
-		console.log('error');
 	} else {
 		submitForm();
-		console.log('message sent');
-
 		// Hide alert after 3 seconds, remove success class and reset form
 		setTimeout(() => {
 			document.querySelector('.alert').style.display = 'none';
@@ -59,8 +56,6 @@ form.addEventListener('submit', e => {
 function checkInputs() {
 	// Get values from inputs. Trim() remove white spaces
 	const nameValue = name.value,
-		// sbdyValue = sbdy.value,
-		// entityValue = entity.value,
 		emailValue = email.value.trim(),
 		phoneValue = phone.value.trim(),
 		msgValue = msg.value;
@@ -72,14 +67,6 @@ function checkInputs() {
 		// add success class
 		setSuccessFor(name);
 	}
-
-	// if ((entityValue === '' && assoc.checked === true) || corp.checked === true) {
-	// 	// show error & add error class
-	// 	setErrorFor(entity, 'Veuillez renseigner un nom svp');
-	// } else {
-	// 	// add success class
-	// 	setSuccessFor(entity);
-	// }
 
 	if (emailValue === '') {
 		// show error & add error class
@@ -127,6 +114,7 @@ function setErrorFor(input, message) {
 // add success class to form-control
 function setSuccessFor(input) {
 	const formControl = input.parentElement;
+	formControl.classList.remove('error');
 	formControl.classList.add('success');
 
 	// Show validation alert
@@ -166,7 +154,6 @@ function submitForm() {
 			type += checks[i].value + ' ';
 		}
 	}
-	// console.log(type);
 
 	// Save message
 	saveMessage(name, type, entity, email, phone, msg);

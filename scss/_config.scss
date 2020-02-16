@@ -1,18 +1,22 @@
 // Colors
-$color: #fff;
 $primary-color: #000;
 $secondary-color: #0a192f;
 $third-color: #b87333;
+$light-mode-blue: #007bff;
+$light-mode-text-color: #444452;
 
 // Divers
 $show-home-image: true;
-$home-image: url(../img/bkg.jpeg);
+$home-image: url(../img/bkg2.jpg);
 $anim-text-offset: 1em;
 $font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 $font-work: 'consolas', sans-serif;
+$font-sfm: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', 'Lucida Console',
+	Monaco, monospace;
 
 // Background
 $bg-color: linear-gradient(to top, #111, #000000);
+$bkg-light-mode: #fff;
 $fc-input-color: #111;
 $bg-footer-color: linear-gradient(to bottom, #111, #000000);
 

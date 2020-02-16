@@ -28,34 +28,37 @@ window.onscroll = () => {
 };
 
 // Slide menu burger
-const navSlide = () => {
-	const burger = document.querySelector('.burger');
-	const nav = document.querySelector('.nav-links');
-	const navLinks = document.querySelectorAll('.nav-links li');
-	const sideContainer = document.querySelector('.side-container');
+const burger = document.querySelector('.burger');
+const nav = document.querySelector('.nav-links');
+const navLinks = document.querySelectorAll('.nav-links li');
+const sideContainer = document.querySelector('.side-container');
 
+const navSlide = () => {
 	burger.addEventListener('click', () => {
 		//Toggle nav
 		sideContainer.classList.toggle('nav-active');
+		sideContainer.style.filter = 'blur(50%)';
 		nav.classList.toggle('nav-active');
+	});
+};
+navSlide();
 
-		//Animate the links. "Link" = individual link; "Index" = bring back every links we have in the DOM
-		navLinks.forEach((link, index) => {
-			if (link.style.animation) {
-				link.style.animation = '';
-			} else {
-				// divide links per 5 gives an equal delay for each one. +1 for adding delay on the first link
-				link.style.animation = `navLinkFade 0.2s ease forwards ${index / 5 +
-					0.5}s`;
+// Close side menu when click on links
+const navClose = () => {
+	navLinks.forEach(link => {
+		link.addEventListener('click', () => {
+			if (sideContainer.className === 'side-container nav-active') {
+				sideContainer.classList.remove('nav-active');
+				nav.classList.remove('nav-active');
+				rotateBurger();
 			}
 		});
 	});
 };
-
-navSlide();
+navClose();
 
 //Rotate burger when click
-const burger = document.querySelector('.burger');
+// const burger = document.querySelector('.burger');
 let showMenu = false;
 burger.addEventListener('click', rotateBurger);
 
@@ -68,6 +71,20 @@ function rotateBurger() {
 		showMenu = false;
 	}
 }
+
+// Parallax on home section
+window.onload = () => {
+	const title = document.querySelector('.content .title'),
+		typingText = document.querySelector('.content .typing-text');
+
+	// Event on scroll window
+	window.addEventListener('scroll', () => {
+		// console.log(this.pageYOffset);
+		// PageYOffset shows how many pixels the window scroll vertically. Divided by 2 to be half of the effectiveness
+		title.style.transform = 'translateY(' + this.pageYOffset / 2 + '%)';
+		typingText.style.transform = 'translateY(' + this.pageYOffset / 2.5 + '%)';
+	});
+};
 
 // TypeWriter effect
 class TypeWriter {
@@ -138,6 +155,14 @@ function init() {
 	new TypeWriter(txtElement, words, wait);
 }
 
+//Toggle light/dark mode
+const checkbox = document.getElementById('checkbox');
+
+checkbox.addEventListener('change', () => {
+	// Change the theme of the site
+	document.body.classList.toggle('light');
+});
+
 // Cogs icons animation on hover
 const getCogs = document.querySelectorAll('.fa-cog'),
 	getBox = document.querySelector('.service-box:nth-child(1)');
@@ -176,7 +201,6 @@ function checkHidePerso() {
 		item.classList.remove('slide-down-p1');
 	});
 	EntityInput.classList.add('slide-right-p2');
-	EntityInput.classList.remove('error');
 }
 
 // display hidden input and move down following inputs when click on assoc

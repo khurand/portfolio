@@ -101,6 +101,12 @@
 		top: 0;
 		.navbar {
 			padding: 0px;
+			display: flex;
+			justify-content: space-between;
+
+			.logo {
+				display: block;
+			}
 
 			.navlink {
 				display: none;
@@ -151,6 +157,12 @@
 							width: 100%;
 						}
 					}
+
+					.typing-text {
+						display: flex;
+						align-items: flex-start;
+					}
+
 					.mouse {
 						display: none;
 					}
@@ -422,6 +434,13 @@
 				font-size: 1.3em !important;
 			}
 
+			#home {
+				.typing-text {
+					display: flex;
+					align-items: flex-start;
+				}
+			}
+
 			// Services
 			#services {
 				display: block;
@@ -486,6 +505,12 @@
 
 				#form {
 					width: 100%;
+
+					.btn {
+						button {
+							font-size: 0.6rem;
+						}
+					}
 				}
 
 				.full {
