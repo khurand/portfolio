@@ -1,5 +1,21 @@
 // widescreens min 1171px
 @include mediaXl {
+	.right-side-container {
+		font-size: 1rem;
+	}
+
+	#home {
+		.title {
+			.lg-heading {
+				font-size: 7rem !important;
+			}
+		}
+		.typing-text {
+			.text {
+				font-size: 2rem !important;
+			}
+		}
+	}
 	#contact {
 		.wrapper {
 			& > * {
@@ -42,6 +58,19 @@
 
 // Desktops & Laptops min 769px max 1170px
 @include mediaLg {
+	#home {
+		.title {
+			.lg-heading {
+				font-size: 6rem !important;
+			}
+		}
+		.typing-text {
+			align-items: center !important;
+			.text {
+				font-size: 2rem !important;
+			}
+		}
+	}
 	#contact {
 		.brand {
 			text-align: left;
@@ -356,6 +385,7 @@
 							padding: 30px 25px 20px !important;
 							position: relative;
 							font-size: 0.9em;
+							z-index: 2;
 
 							.desc {
 								background-color: transparent !important;
@@ -365,12 +395,6 @@
 
 							h5 {
 								font-size: 18px !important;
-							}
-
-							.tech-list {
-								li {
-									color: rgb(204, 214, 246) !important;
-								}
 							}
 						}
 						.work-pict {

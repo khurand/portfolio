@@ -84,6 +84,7 @@
 				justify-content: center;
 				height: 100%;
 				width: 100%;
+				z-index: 2;
 
 				.lg-heading {
 					background: $primary-color;
@@ -115,8 +116,7 @@
 				align-items: flex-end;
 
 				.text {
-					font-size: 1rem;
-					// margin: 20px 0px;
+					font-size: 0.8rem;
 					padding: 20px;
 					height: 70px;
 					width: 100%;

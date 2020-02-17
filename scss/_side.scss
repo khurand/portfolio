@@ -1,12 +1,15 @@
 .left-side-container {
 	width: 40px;
-	height: 50%;
+	height: 40%;
 	position: fixed;
 	bottom: 0px;
 	left: 50px;
 	right: auto;
 	z-index: 10;
 	color: rgb(168, 178, 209);
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
 
 	.social-list {
 		display: flex;
@@ -16,6 +19,7 @@
 		padding: 0px;
 		margin: 0px;
 		list-style: none;
+		height: 100%;
 
 		&:after {
 			content: '';
@@ -27,12 +31,13 @@
 		}
 
 		li {
-			display: list-item;
+			display: flex;
+			// justify-content: space-between;
 			text-align: -webkit-match-parent;
-			margin-bottom: 25px;
+			margin: auto;
 
 			&:last-of-type {
-				margin-bottom: 30px;
+				margin-bottom: 10px;
 			}
 
 			.social-link {
@@ -61,26 +66,30 @@
 
 .right-side-container {
 	width: 40px;
-	height: 50%;
+	height: 40%;
 	position: fixed;
 	bottom: 0px;
 	left: auto;
 	right: 40px;
 	z-index: 10;
 	color: rgb(168, 178, 209);
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
 
 	.email {
 		display: flex;
 		flex-direction: column;
-		-webkit-box-align: center;
 		align-items: center;
+		justify-content: flex-end;
 		position: relative;
+		height: 100%;
 
 		&:after {
 			content: '';
 			display: block;
 			width: 2px;
-			height: 175px;
+			height: 90px;
 			background-color: rgb(168, 178, 209);
 			margin: 0px auto;
 		}
@@ -88,15 +97,17 @@
 		.address {
 			font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono',
 				'Lucida Console', Monaco, monospace;
-			font-size: 0.85rem;
+			font-size: 0.75rem;
 			letter-spacing: 0.1em;
 			-webkit-writing-mode: vertical-rl;
 			writing-mode: vertical-rl;
-			margin: 20px auto;
+			margin: auto;
 			padding: 10px;
 			text-decoration: none;
 			color: inherit;
 			@include cubicTransition();
+			display: flex;
+			justify-content: center;
 
 			&:hover {
 				color: $third-color;
