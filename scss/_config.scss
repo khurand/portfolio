@@ -7,12 +7,14 @@ $light-mode-text-color: #444452;
 
 // Divers
 $show-home-image: true;
-$home-image: url(../img/bkg2.jpg);
+// $home-image: url(../img/bkg2.jpg);
+
 $anim-text-offset: 1em;
 $font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 $font-work: 'consolas', sans-serif;
 $font-sfm: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', 'Lucida Console',
 	Monaco, monospace;
+$box-shadow: rgba(72, 94, 116, 0.7) 0px 20px 30px -15px;
 
 // Background
 $bg-color: linear-gradient(to top, #111, #000000);
@@ -27,7 +29,12 @@ $img-url3: url(../img/projects/project-3.jpg);
 
 // transition animation
 @mixin cubicTransition() {
-	transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+	transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+}
+
+// transition animation v2
+@mixin cubicTransition2() {
+	transition: 1.5s cubic-bezier(0.5, 0, 0, 1);
 }
 
 // checkboxes transition
@@ -72,7 +79,12 @@ $img-url3: url(../img/projects/project-3.jpg);
 	}
 }
 @mixin mediaXl {
-	@media screen and (min-width: 1171px) {
+	@media screen and (min-width: 1171px) and (max-width: 1600px) {
+		@content;
+	}
+}
+@mixin mediaXxl {
+	@media screen and (min-width: 1601px) {
 		@content;
 	}
 }

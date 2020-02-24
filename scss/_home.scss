@@ -1,203 +1,202 @@
 #home {
-	font-family: $font-work;
-	width: 100%;
-	height: 100vh !important;
-	overflow: hidden;
-	z-index: 1;
+	padding: 0px 0px 50px 0px !important;
 
-	.layer {
-		position: absolute;
-		width: 100%;
-		min-height: 100%;
-		background: $home-image;
+	&:after {
+		content: '';
+		height: 100vh;
+		width: 100vw;
+		background-image: url(../img/bkg2.jpg);
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-position: center;
-		background-attachment: fixed;
-		top: 0px;
-		left: 0px;
-		overflow: hidden;
+		display: block;
+		filter: blur(10px);
+		@include cubicTransition();
 	}
 
-	.showcase {
-		position: relative;
-		height: 100%;
-		display: block;
-		z-index: 1;
+	&:hover {
+		&:after {
+			filter: blur(0px);
+		}
+	}
 
-		.content {
-			height: 100%;
+	.content {
+		position: absolute;
+		z-index: 1;
+		height: 100%;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+
+		.switcher {
+			margin: 20px 0px 0px 100px;
+			width: 100%;
+			height: 100px;
+
+			.checkbox {
+				opacity: 0;
+				position: absolute;
+
+				&:checked + .label .ball {
+					transform: translateX(24px);
+				}
+			}
+			.label {
+				background-color: #111;
+				display: flex;
+				height: 26px;
+				width: 50px;
+				border-radius: 50px;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding: 5px;
+				position: relative;
+			}
+
+			.fa-moon {
+				color: #c0c0c0;
+			}
+
+			.fa-sun {
+				color: #f39c12;
+			}
+
+			.ball {
+				width: 22px;
+				height: 22px;
+				background-color: #fff;
+				position: absolute;
+				top: 2px;
+				left: 2px;
+				border-radius: 50%;
+				transition: transform 0.2s linear;
+			}
+		}
+
+		.title {
+			display: flex;
+			align-items: flex-end;
+			justify-content: center;
+			height: 100px;
+			width: 100%;
+			z-index: 2;
+
+			.lg-heading {
+				background: $primary-color;
+				font-weight: 900;
+				font-size: 3rem;
+				color: #fff;
+				text-align: center;
+				padding: 15px 20px;
+				@include cubicTransition();
+				border-radius: 4px;
+
+				&:hover {
+					transform: translateY(-5px);
+					box-shadow: rgba(2, 12, 27, 0.7) 0px 10px 30px -15px;
+				}
+
+				span {
+					color: $third-color;
+					font-weight: 300;
+				}
+			}
+		}
+
+		.typing-text {
+			height: 100px;
 			width: 100%;
 			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: space-around;
-			position: absolute;
+			justify-content: center;
+			align-items: flex-end;
 
-			.switcher {
-				margin: 20px 0px;
+			.text {
+				font-size: 1rem;
+				padding: 20px;
+				height: 70px;
 				width: 100%;
-				.checkbox {
-					opacity: 0;
-					position: absolute;
-
-					&:checked + .label .ball {
-						transform: translateX(24px);
-					}
-				}
-				.label {
-					background-color: #111;
-					display: flex;
-					height: 26px;
-					width: 50px;
-					border-radius: 50px;
-					display: flex;
-					align-items: center;
-					justify-content: space-between;
-					padding: 5px;
-					position: relative;
-				}
-
-				.fa-moon {
-					color: #c0c0c0;
-				}
-
-				.fa-sun {
-					color: #f39c12;
-				}
-
-				.ball {
-					width: 22px;
-					height: 22px;
-					background-color: #fff;
-					position: absolute;
-					top: 2px;
-					left: 2px;
-					border-radius: 50%;
-					transition: transform 0.2s linear;
-				}
+				text-align: center;
 			}
+		}
 
-			.title {
+		.mouse {
+			width: 100%;
+			height: 100px;
+			display: flex;
+			justify-content: flex-end;
+			align-items: flex-end;
+			margin-top: 50px;
+
+			//scroll down animation
+			.scrollDown {
+				position: relative;
 				display: flex;
-				align-items: flex-end;
+				flex-direction: column-reverse;
+				align-items: center;
 				justify-content: center;
-				height: 100%;
-				width: 100%;
-				z-index: 2;
+				animation: animateScroll 1s ease alternate infinite;
+				margin: 0px 100px 0px 0px;
 
-				.lg-heading {
-					background: $primary-color;
-					font-weight: 900;
-					font-size: 3rem;
-					color: #fff;
-					text-align: center;
-					padding: 15px 20px;
-					@include cubicTransition();
-					border-radius: 4px;
-
-					&:hover {
-						transform: translateY(-5px);
-						box-shadow: rgba(2, 12, 27, 0.7) 0px 10px 30px -15px;
-					}
-
-					span {
-						color: $third-color;
-						font-weight: 300;
-					}
-				}
-			}
-
-			.typing-text {
-				height: 100%;
-				width: 100%;
-				display: flex;
-				justify-content: center;
-				align-items: flex-end;
-
-				.text {
-					font-size: 0.8rem;
-					padding: 20px;
-					height: 70px;
-					width: 100%;
-					text-align: center;
-				}
-			}
-
-			.mouse {
-				width: 100%;
-				height: 100%;
-				display: flex;
-				justify-content: flex-end;
-				align-items: flex-end;
-
-				//scroll down animation
-				.scrollDown {
+				a {
 					position: relative;
-					display: flex;
-					flex-direction: column-reverse;
-					align-items: center;
-					justify-content: center;
-					animation: animateScroll 1s ease alternate infinite;
+					transform: scale(0.7);
+					width: 60px;
+					height: 90px;
+					border-radius: 25px;
+					background: transparent;
+					border: 4px solid #fff;
 
-					a {
-						position: relative;
-						transform: scale(0.7);
-						width: 60px;
-						height: 90px;
-						border-radius: 25px;
-						background: transparent;
-						border: 4px solid #fff;
-						margin-right: 20px;
-
-						&:before {
-							content: '';
-							position: absolute;
-							width: 6px;
-							height: 6px;
-							border-radius: 50%;
-							background: #fff;
-							left: 50%;
-							top: 10px;
-							transform: translate(-50%, 0);
-							animation: animate 1s linear infinite;
-						}
-						&:after {
-							content: '';
-							position: absolute;
-							width: 8px;
-							height: 23px;
-							border-radius: 50%;
-							background: #fff;
-							left: 50%;
-							top: 5px;
-							transform: translate(-50%, 0);
-							border-radius: 3px;
-						}
+					&:before {
+						content: '';
+						position: absolute;
+						width: 6px;
+						height: 6px;
+						border-radius: 50%;
+						background: #fff;
+						left: 50%;
+						top: 10px;
+						transform: translate(-50%, 0);
+						animation: animate 1s linear infinite;
 					}
-
-					@keyframes animate {
-						0% {
-							transform: translate(-50%, 10px);
-							opacity: 0;
-						}
-						80% {
-							transform: translate(-50%, 50px);
-							opacity: 1;
-						}
-						100% {
-							transform: translate(-50%, 60px);
-							opacity: 0;
-						}
+					&:after {
+						content: '';
+						position: absolute;
+						width: 8px;
+						height: 23px;
+						border-radius: 50%;
+						background: #fff;
+						left: 50%;
+						top: 5px;
+						transform: translate(-50%, 0);
+						border-radius: 3px;
 					}
+				}
 
-					@keyframes animateScroll {
-						0% {
-							opacity: 0.1;
-						}
-						100% {
-							opacity: 1;
-						}
+				@keyframes animate {
+					0% {
+						transform: translate(-50%, 10px);
+						opacity: 0;
+					}
+					80% {
+						transform: translate(-50%, 50px);
+						opacity: 1;
+					}
+					100% {
+						transform: translate(-50%, 60px);
+						opacity: 0;
+					}
+				}
+
+				@keyframes animateScroll {
+					0% {
+						opacity: 0.1;
+					}
+					100% {
+						opacity: 1;
 					}
 				}
 			}

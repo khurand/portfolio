@@ -1,0 +1,63 @@
+.preloader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-flow: column;
+	width: 100vw;
+	height: 100vh;
+	z-index: 1000;
+
+	background-color: #171717;
+	transition: all 0.5s ease-out;
+
+	.preloader-text {
+		color: #f3f3f3;
+		font-size: 28px;
+		font-weight: 300;
+		margin-top: 20px;
+	}
+
+	.blocks {
+		
+		position: relative;
+		width: 70px;
+		height: 70px;
+		animation: rotate 5s ease-in-out infinite;
+
+		.block {
+			position: absolute;
+			width: 30px;
+			height: 30px;
+			border-radius: 4px;
+			background-color: #ffce00;
+			transition: all 0.5s linear;
+
+			&:nth-child(1) {
+				top: 0px;
+				left: 40px;
+			}
+			&:nth-child(2) {
+				top: 0px;
+				left: 0px;
+			}
+			&:nth-child(3) {
+				top: 40px;
+				left: 0px;
+			}
+		}
+
+		@keyframes rotate {
+			0% {
+				transform: rotate(0deg);
+			}
+			100% {
+				transform: rotate(360deg);
+			}
+		}
+	}
+}

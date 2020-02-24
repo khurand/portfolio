@@ -1,18 +1,20 @@
 #works {
-	max-width: 1600px;
-	margin: auto;
-	height: 100%;
+	width: 100%;
 
 	.works {
 		width: 100%;
+		padding: 10px 50px;
+		max-width: 1600px;
 
 		.work {
+			min-height: 400px;
+			height: 100%;
+
 			&:nth-child(odd) {
 				display: grid;
 				grid-template-columns: repeat(12, 1fr);
 				grid-gap: 1rem;
 				grid-template-areas: 'work-pict work-info';
-				min-height: 400px;
 				align-items: center;
 				margin-bottom: 100px;
 				gap: 10px 10px;
@@ -68,12 +70,24 @@
 
 						p {
 							font-size: 0.9em;
+							text-align: justify;
+
+							a {
+								text-decoration: underline;
+								color: inherit;
+								transition: 0.3s ease;
+								&:hover {
+									color: $third-color;
+									transform: translateY(-2px);
+								}
+							}
 						}
 					}
 
 					.tech-list {
 						display: flex;
 						justify-content: flex-end;
+						align-items: center;
 						list-style: none;
 						position: relative;
 						z-index: 2;
@@ -84,9 +98,13 @@
 						li {
 							margin-left: 20px;
 							font-size: 13px;
-							color: #555;
 							font-family: $font-work;
+							color: #fff;
 							letter-spacing: 1px;
+							border: 1px solid $third-color;
+							padding: 5px;
+							border-radius: 4px;
+							margin-bottom: 20px;
 						}
 					}
 
@@ -152,7 +170,6 @@
 				grid-template-columns: repeat(12, 1fr);
 				grid-gap: 1rem;
 				grid-template-areas: 'work-info work-pict';
-				min-height: 400px;
 				align-items: center;
 				margin-bottom: 100px;
 				gap: 10px 10px;
@@ -212,6 +229,7 @@
 						display: flex;
 						justify-content: flex-start;
 						list-style: none;
+						align-items: center;
 						position: relative;
 						z-index: 2;
 						flex-wrap: wrap;
@@ -219,11 +237,15 @@
 						margin: 25px 0px 10px;
 
 						li {
-							margin-right: 20px;
+							margin-left: 20px;
 							font-size: 13px;
-							color: #555;
+							color: #fff;
 							font-family: $font-work;
 							letter-spacing: 1px;
+							border: 1px solid $third-color;
+							padding: 5px;
+							border-radius: 4px;
+							margin-bottom: 20px;
 						}
 					}
 					.link-wrapper {

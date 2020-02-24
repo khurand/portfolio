@@ -1,4 +1,108 @@
-// Scroll-line indicator
+// ****************** Preloader blocks animation ****************** //
+// let preload = () => {
+// 	// Hide scrollbars on the preloader screen
+// 	const html = document.documentElement;
+// 	html.setAttribute('class', 'overflow-hidden');
+// 	html.className += 'overflow-hidden';
+
+// 	// Disable content container
+// 	const sections = document.querySelector('#container');
+// 	sections.style.display = 'none';
+
+// 	// Move each blocks with an incrementing interval of 500ms
+// 	const blocks = document.querySelectorAll('.block');
+// 	let interval = 0;
+// 	blocks.forEach((block, i) => {
+// 		setTimeout(() => {
+// 			animate(block, i);
+// 		}, interval);
+// 		interval += 500;
+// 	});
+
+// 	function animate(block, index) {
+// 		let position = index;
+// 		setInterval(() => {
+// 			switch (position) {
+// 				case 0:
+// 					block.style.top = '40px';
+// 					position = 3;
+// 					break;
+// 				case 1:
+// 					block.style.left = '40px';
+// 					position = 0;
+// 					break;
+// 				case 2:
+// 					block.style.top = '0px';
+// 					position = 1;
+// 					break;
+// 				case 3:
+// 					block.style.left = '0px';
+// 					position = 2;
+// 					break;
+// 			}
+// 		}, 1500);
+// 	}
+
+// 	const preloaderText = document.querySelector('.preloader-text');
+// 	let dots = 1;
+// 	setInterval(() => {
+// 		switch (dots) {
+// 			case 1:
+// 				preloaderText.textContent = 'Loading...';
+// 				dots++;
+// 				break;
+// 			case 2:
+// 				preloaderText.textContent = 'Loading..';
+// 				dots++;
+// 				break;
+// 			case 3:
+// 				preloaderText.textContent = 'Loading.';
+// 				dots++;
+// 				break;
+// 			case 4:
+// 				preloaderText.textContent = 'Loading';
+// 				dots++;
+// 				break;
+// 			case 5:
+// 				preloaderText.textContent = 'Loading.';
+// 				dots++;
+// 				break;
+// 			case 6:
+// 				preloaderText.textContent = 'Loading..';
+// 				dots++;
+// 				break;
+// 			case 7:
+// 				preloaderText.textContent = 'Loading...';
+// 				dots = 1;
+// 				break;
+// 		}
+// 	}, 500);
+// };
+// preload();
+
+// // fade out function
+
+// const preloader = document.querySelector('.preloader');
+// function finishedLoading() {
+// 	preloader.style.opacity = '0';
+// 	setTimeout(() => {
+// 		preloader.style.display = 'none';
+// 	}, 500);
+// }
+
+// when dom is loaded: Fade out preloader after 5s, remove class="overflow-hidden" on html tag and enable content container
+document.addEventListener('DOMContentLoaded', () => {
+	const html = document.documentElement;
+	const sections = document.querySelector('#container');
+	setTimeout(() => {
+		finishedLoading();
+		html.removeAttribute('class', 'overflow-hidden');
+		sections.style.display = 'block';
+	}, 5000);
+});
+
+// ****************** Scroll-line indicator ****************** //
+
 const scrollIndicatorElt = document.getElementById('scrollIndicator');
 const maxScrollableHeight = document.body.scrollHeight - window.innerHeight;
 window.addEventListener('scroll', moveScrollIndicator);
@@ -8,7 +112,8 @@ function moveScrollIndicator() {
 	scrollIndicatorElt.style.width = percentage + '%';
 }
 
-// Hide header when scrolldown
+// ****************** Hide header when scrolldown ****************** //
+
 // get previous vertical position of the window
 let prevScrollPos = window.pageYOffset;
 // call anonymous function on scroll
@@ -27,7 +132,8 @@ window.onscroll = () => {
 	prevScrollPos = currentScrollPos;
 };
 
-// Slide menu burger
+// ****************** Slide menu burger ****************** //
+
 const burger = document.querySelector('.burger');
 const nav = document.querySelector('.nav-links');
 const navLinks = document.querySelectorAll('.nav-links li');
@@ -37,7 +143,6 @@ const navSlide = () => {
 	burger.addEventListener('click', () => {
 		//Toggle nav
 		sideContainer.classList.toggle('nav-active');
-		sideContainer.style.filter = 'blur(50%)';
 		nav.classList.toggle('nav-active');
 	});
 };
@@ -58,7 +163,6 @@ const navClose = () => {
 navClose();
 
 //Rotate burger when click
-// const burger = document.querySelector('.burger');
 let showMenu = false;
 burger.addEventListener('click', rotateBurger);
 
@@ -72,7 +176,8 @@ function rotateBurger() {
 	}
 }
 
-// Parallax on home section
+// ****************** Parallax on home section ****************** //
+
 window.onload = () => {
 	const title = document.querySelector('.content .title'),
 		typingText = document.querySelector('.content .typing-text');
@@ -86,7 +191,8 @@ window.onload = () => {
 	});
 };
 
-// TypeWriter effect
+// ****************** TypeWriter effect ****************** //
+
 class TypeWriter {
 	constructor(txtElement, words, wait = 3000) {
 		this.txtElement = txtElement;
@@ -155,7 +261,8 @@ function init() {
 	new TypeWriter(txtElement, words, wait);
 }
 
-//Toggle light/dark mode
+// ****************** Toggle light/dark mode ****************** //
+
 const checkbox = document.getElementById('checkbox');
 
 checkbox.addEventListener('change', () => {
@@ -163,7 +270,8 @@ checkbox.addEventListener('change', () => {
 	document.body.classList.toggle('light');
 });
 
-// Cogs icons animation on hover
+// ****************** Cogs icons animation on hover ****************** //
+
 const getCogs = document.querySelectorAll('.fa-cog'),
 	getBox = document.querySelector('.service-box:nth-child(1)');
 
@@ -181,15 +289,14 @@ function spinOff() {
 	}
 }
 
-// Contact form checkboxes function
+// ****************** Contact form checkboxes function ****************** //
+
 const EntityInput = document.querySelector('.hidden-field'),
 	labelChange = document.querySelector('.label-change'),
 	checkPerso = document.querySelector('input[id="box-1"]'),
 	checkAssoc = document.querySelector('input[id="box-2"]'),
 	checkCorp = document.querySelector('input[id="box-3"]'),
 	slideDownAnimation = document.querySelectorAll('.sda');
-
-// console.log(checks);
 
 checkPerso.addEventListener('click', checkHidePerso);
 checkAssoc.addEventListener('click', checkDisplayAssoc);
@@ -250,3 +357,29 @@ function onlyOne(checkbox) {
 		}
 	});
 }
+
+// ****************** elements display on scroll with Intersection Observer API ****************** //
+const ratio = 0.1;
+const options = {
+	// root element, display area = null => check if element is visible on the screen
+	root: null,
+	// set margin to element
+	rootMargin: '0px',
+	// if threshold set to .1 = 10% of the element must be visible in the screen to make the API working
+	threshold: ratio
+};
+
+const handleIntersect = (entries, observer) => {
+	entries.forEach(function (entry) {
+		if (entry.intersectionRatio > ratio) {
+			entry.target.classList.add('reveal-visible');
+			observer.unobserve(entry.target);
+		}
+	});
+};
+
+const observer = new IntersectionObserver(handleIntersect, options);
+
+document.querySelectorAll('.reveal').forEach(r => {
+	observer.observe(r);
+});

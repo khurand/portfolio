@@ -1,23 +1,61 @@
-// widescreens min 1171px
-@include mediaXl {
-	.right-side-container {
-		font-size: 1rem;
-	}
-
+// widescreens min 1601px
+@include mediaXxl {
 	#home {
 		.title {
 			.lg-heading {
-				font-size: 7rem !important;
+				font-size: 6.5rem !important;
 			}
 		}
 		.typing-text {
+			align-items: center !important;
 			.text {
-				font-size: 2rem !important;
+				font-size: 1.5rem !important;
+			}
+		}
+	}
+	#about-me {
+		.about {
+			.bio {
+				font-size: 1.1rem;
+			}
+
+			.techs {
+				p {
+					font-size: 1.1em;
+				}
+
+				.tech-list {
+					margin-top: 20px;
+					font-size: 1.1em;
+					li {
+						margin-bottom: 10px;
+					}
+				}
+			}
+		}
+	}
+}
+
+// widescreens min 1171px to max 1600px
+@include mediaXl {
+	#home {
+		.title {
+			.lg-heading {
+				font-size: 5.5rem !important;
+			}
+		}
+		.typing-text {
+			align-items: center !important;
+			.text {
+				font-size: 1.5rem !important;
 			}
 		}
 	}
 	#contact {
 		.wrapper {
+			display: flex;
+			justify-content: space-between;
+
 			& > * {
 				padding: 2em;
 			}
@@ -61,13 +99,23 @@
 	#home {
 		.title {
 			.lg-heading {
-				font-size: 6rem !important;
+				font-size: 4rem !important;
 			}
 		}
 		.typing-text {
 			align-items: center !important;
 			.text {
-				font-size: 2rem !important;
+				font-size: 1.5rem !important;
+			}
+		}
+	}
+	#services {
+		.downSide {
+			.service-title {
+				font-size: 14px !important;
+			}
+			.code-sign {
+				font-size: 2.6rem !important;
 			}
 		}
 	}
@@ -122,7 +170,7 @@
 	}
 }
 
-// Tablets & small Laptops max 768px
+// Tablets & small Laptops min 601px max 768px
 @include mediaMd {
 	//Navbar
 	#header {
@@ -202,6 +250,7 @@
 			#services {
 				.downSide {
 					width: 100%;
+					padding: 0;
 
 					.services-container {
 						display: grid;
@@ -223,40 +272,102 @@
 				.about {
 					display: grid;
 					grid-template-columns: 1fr;
-					grid-template-rows: 1fr 1fr;
+					grid-template-rows: 2fr 1fr 1fr;
 					grid-template-areas:
+						'pict'
 						'bio'
-						'pict';
+						'techs'
+						'tldr';
 					align-items: center;
 					justify-items: center;
-
-					.bio {
-						grid-area: bio;
-						width: 80%;
-					}
 
 					.pict {
 						grid-area: pict;
 						width: 60%;
 						min-width: 345px;
 					}
+
+					.bio {
+						grid-area: bio;
+						padding: 10px;
+					}
+
+					.techs {
+						grid-area: techs;
+						.tech-list {
+							width: 80%;
+							margin: 0px auto;
+							justify-self: center;
+
+							li:nth-child(1) {
+								font-size: 0;
+
+								&:after {
+									content: 'JS(ES5 & 6)';
+									font-size: 14px;
+								}
+							}
+							li:nth-child(5) {
+								font-size: 0;
+
+								&:after {
+									content: 'Html & scss';
+									font-size: 14px;
+								}
+							}
+						}
+					}
+
+					.tldr {
+						grid-area: tldr;
+					}
 				}
 			}
 
 			//works
 			#works {
-				.work {
-					.work-info {
-						padding: 0px !important;
-					}
-					.work-pict {
-						height: 100% !important;
+				padding: 100px 0px;
+				.works {
+					.work {
+						margin-bottom: 75px !important;
+						min-height: 100% !important;
 
-						.image {
-							align-items: center;
-							img {
-								object-fit: cover;
-								object-position: center center;
+						.work-info {
+							grid-column: 1 / -1 !important;
+							padding: 30px 25px 20px !important;
+							position: relative;
+							font-size: 0.9em;
+							z-index: 2;
+
+							.desc {
+								background-color: transparent !important;
+								box-shadow: none !important;
+								padding: 20px 0px !important;
+							}
+
+							h5 {
+								font-size: 18px !important;
+							}
+
+							.tech-list {
+								margin: 0;
+							}
+
+							.link-wrapper {
+								margin: 0;
+							}
+						}
+						.work-pict {
+							opacity: 0.25;
+							grid-column: 1 / -1 !important;
+
+							.image {
+								min-height: 100% !important;
+								img {
+									max-width: 100%;
+									vertical-align: middle;
+									height: 100%;
+								}
 							}
 						}
 					}
@@ -297,13 +408,19 @@
 	}
 }
 
-// Smartphones max 600px
+// Smartphones min 451px max 600px
 @include mediaSm {
+	.light {
+		.desc {
+			color: $light-mode-text-color !important;
+		}
+	}
 	#container {
+		width: 100vw !important;
 		.main {
 			padding: 0px 50px !important;
-			top: 0;
 			height: 100%;
+			width: 100%;
 
 			.heading {
 				font-size: 1.35em !important;
@@ -311,10 +428,10 @@
 
 			// Services
 			#services {
-				display: block;
-
+				width: 100%;
 				.downSide {
 					width: 100%;
+					padding: 0;
 
 					.services-container {
 						display: block !important;
@@ -329,6 +446,7 @@
 						flex-direction: column;
 						align-items: center !important;
 						justify-content: space-around;
+						width: 100%;
 
 						.service-icon {
 							font-size: 2.5em;
@@ -355,20 +473,24 @@
 			#about-me {
 				margin-top: 50px;
 				padding: 1rem;
+				width: 100%;
 				.about {
 					display: block;
 
 					.bio {
-						width: 80%;
+						width: 100%;
 					}
 
 					.pict {
-						margin: 60px auto 0px;
-						min-width: 225px;
+						margin: 0px 60px 20px 60px;
 
 						.link-git {
 							display: inline-block;
 						}
+					}
+
+					.techs {
+						margin-bottom: 20px;
 					}
 				}
 			}
@@ -378,7 +500,6 @@
 				.works {
 					.work {
 						margin-bottom: 75px !important;
-						min-height: 100% !important;
 
 						.work-info {
 							grid-column: 1 / -1 !important;
@@ -448,9 +569,12 @@
 
 //Smartphones under 450px
 @include mediaXs {
+	#header {
+		.side-menu {
+			padding: 5px !important;
+		}
+	}
 	#container {
-		// padding: 0px !important;
-
 		.main {
 			padding: 0px 15px !important;
 
@@ -458,19 +582,30 @@
 				font-size: 1.3em !important;
 			}
 
+			// Home
 			#home {
-				.typing-text {
-					display: flex;
-					align-items: flex-start;
+				height: 100vh;
+				width: 100vw;
+				.content {
+					.switcher {
+						margin-left: 20px;
+					}
+					.title h1 {
+						font-size: 2.2rem;
+					}
+					.typing-text {
+						display: flex;
+						align-items: flex-start;
+					}
 				}
 			}
 
 			// Services
 			#services {
 				display: block;
-
 				.downSide {
 					width: 100%;
+					padding: 0;
 
 					.services-container {
 						display: block !important;
@@ -481,18 +616,18 @@
 					}
 
 					.service-box {
-						display: flex !important;
+						display: flex;
 						flex-direction: column;
-						align-items: center !important;
+						align-items: center;
 						justify-content: space-around;
+						padding: 0 !important;
 
 						.service-icon {
 							font-size: 1.9em;
 						}
 
 						.service-title {
-							width: 100%;
-							font-size: 1.3em !important;
+							font-size: 0.95rem !important;
 						}
 
 						.service-desc {
@@ -508,15 +643,93 @@
 				}
 			}
 
+			// About
+			#about-me {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+				align-items: center;
+				.about {
+					.pict {
+						margin: 0;
+						min-width: auto;
+						width: 100%;
+						margin-bottom: 25px;
+					}
+					.techs {
+						margin-bottom: 25px;
+						padding: 10px;
+						height: 100%;
+
+						p {
+							margin-bottom: 10px;
+						}
+
+						.tech-list {
+							margin: 0;
+							display: grid;
+							grid-template-columns: 1fr 1fr;
+							grid-template-rows: 1fr 1fr;
+						}
+					}
+					.tldr {
+						margin-bottom: 25px;
+						height: 100%;
+						width: 100%;
+						.tldr-items {
+							display: block;
+
+							.tldr-res {
+								width: 100%;
+								display: flex;
+								// justify-content: center;
+								align-items: center;
+								font-size: 16px;
+								flex-direction: row;
+
+								.tldr-icon {
+									margin: 0;
+									margin-right: 20px;
+									font-size: 2em;
+								}
+							}
+						}
+					}
+				}
+			}
+
+			// Works
+			#works {
+				padding: 0;
+				.works {
+					padding: 0;
+
+					.work {
+						min-height: 400px !important;
+
+						.work-info {
+							padding: 40px 25px 50px !important;
+
+							.tech-list {
+								margin-bottom: 20px;
+							}
+						}
+					}
+				}
+			}
+
 			// Form
 			#contact {
-				padding: 1rem;
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
 
 				.info {
 					font-size: 1.2em;
+
+					.fas span {
+						font-size: 1rem;
+					}
 				}
 
 				#entity {
@@ -552,6 +765,7 @@
 				}
 				.credits {
 					font-size: 0.7em;
+					display: block;
 				}
 			}
 		}

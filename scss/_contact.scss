@@ -1,9 +1,9 @@
 #contact {
-	max-width: 1170px;
 	margin: 0px auto;
 	padding: 1em;
 	line-height: 1.6;
 	color: $third-color;
+	width: 100%;
 
 	ul {
 		list-style: none;
@@ -12,6 +12,7 @@
 
 	.wrapper {
 		display: flex;
+		justify-content: space-around;
 		& > * {
 			padding: 1em;
 		}
@@ -111,6 +112,7 @@
 							input[type='checkbox'] {
 								height: 0;
 								width: 0;
+								display: none;
 
 								& + label {
 									position: relative;
@@ -343,11 +345,14 @@
 					display: flex;
 					width: 100%;
 					justify-content: flex-end;
+
 					button {
 						background: #a8b2d1;
 						border: 0;
 						text-transform: uppercase;
 						width: 33%;
+						display: flex;
+						justify-content: space-around;
 
 						&:hover,
 						&:focus {
@@ -355,6 +360,10 @@
 							color: #fff;
 							outline: 0;
 							transition: background-color 0.3s ease-out;
+						}
+
+						.fa-paper-plane {
+							font-size: 1.2em;
 						}
 					}
 				}
