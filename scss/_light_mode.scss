@@ -2,6 +2,24 @@
 	.scroll-line {
 		background: $primary-color;
 	}
+
+	.scroll-to-top {
+		color: #eee;
+		border: 2px solid $light-mode-blue;
+
+		&:hover {
+			transform: rotate(-45deg) scale(1.1);
+
+			.gotoTop {
+				color: $light-mode-blue;
+			}
+		}
+
+		.gotoTop {
+			color: $light-mode-text-color;
+			font-size: 1.5rem;
+		}
+	}
 	#header {
 		background-color: $bkg-light-mode;
 

@@ -26,8 +26,42 @@ html {
 			height: 2px;
 			margin-bottom: -2px;
 			background: #fff;
-			z-index: 15;
+			z-index: 99;
 			top: 0;
+		}
+
+		//Scroll to top rocket
+		.scroll-to-top {
+			position: fixed;
+			right: 30px;
+			bottom: 50%;
+			width: 50px;
+			height: 50px;
+			z-index: 5;
+			color: #eee;
+			cursor: pointer;
+			border: 2px solid $third-color;
+			border-radius: 50%;
+			text-decoration: none;
+			text-align: center;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: all 0.3s ease;
+			opacity: 0;
+
+			&:hover {
+				transform: rotate(-45deg) scale(1.1);
+
+				.gotoTop {
+					color: $third-color;
+				}
+			}
+
+			.gotoTop {
+				color: #eee;
+				font-size: 1.5rem;
+			}
 		}
 
 		#container {
@@ -36,6 +70,7 @@ html {
 			height: 100%;
 			min-height: 100%;
 			counter-reset: section 0;
+			top: -300px;
 
 			.main {
 				width: 100%;

@@ -25,17 +25,17 @@
 		transition: top 0.8s;
 
 		.logo {
-			.blocks {
+			.logo-blocks {
 				position: relative;
 				width: 50px;
 				height: 50px;
 
-				.block {
+				.logo-block {
 					position: absolute;
 					width: 20px;
 					height: 20px;
 					border-radius: 2px;
-					background-color: $third-color;
+					background-color: #ffce00;
 					transition: all 2s;
 
 					&:nth-child(1) {
@@ -55,7 +55,7 @@
 				&:hover {
 					transform: rotate(-720deg);
 					transition: 1.5s;
-					.block {
+					.logo-block {
 						background-color: white;
 						transition: 1.5s;
 					}

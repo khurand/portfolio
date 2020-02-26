@@ -1,103 +1,97 @@
 // ****************** Preloader blocks animation ****************** //
-// let preload = () => {
-// 	// Hide scrollbars on the preloader screen
-// 	const html = document.documentElement;
-// 	html.setAttribute('class', 'overflow-hidden');
-// 	html.className += 'overflow-hidden';
+let preload = () => {
+	// Hide scrollbars on the preloader screen
+	const html = document.documentElement;
+	// html.setAttribute('class', 'overflow-hidden');
+	html.className += 'overflow-hidden';
 
-// 	// Disable content container
-// 	const sections = document.querySelector('#container');
-// 	sections.style.display = 'none';
+	// Move each blocks with an incrementing interval of 500ms
+	const blocks = document.querySelectorAll('.block');
+	let interval = 0;
+	blocks.forEach((block, i) => {
+		setTimeout(() => {
+			animate(block, i);
+		}, interval);
+		interval += 500;
+	});
 
-// 	// Move each blocks with an incrementing interval of 500ms
-// 	const blocks = document.querySelectorAll('.block');
-// 	let interval = 0;
-// 	blocks.forEach((block, i) => {
-// 		setTimeout(() => {
-// 			animate(block, i);
-// 		}, interval);
-// 		interval += 500;
-// 	});
+	function animate(block, index) {
+		let position = index;
+		setInterval(() => {
+			switch (position) {
+				case 0:
+					block.style.top = '40px';
+					position = 3;
+					break;
+				case 1:
+					block.style.left = '40px';
+					position = 0;
+					break;
+				case 2:
+					block.style.top = '0px';
+					position = 1;
+					break;
+				case 3:
+					block.style.left = '0px';
+					position = 2;
+					break;
+			}
+		}, 1500);
+	}
 
-// 	function animate(block, index) {
-// 		let position = index;
-// 		setInterval(() => {
-// 			switch (position) {
-// 				case 0:
-// 					block.style.top = '40px';
-// 					position = 3;
-// 					break;
-// 				case 1:
-// 					block.style.left = '40px';
-// 					position = 0;
-// 					break;
-// 				case 2:
-// 					block.style.top = '0px';
-// 					position = 1;
-// 					break;
-// 				case 3:
-// 					block.style.left = '0px';
-// 					position = 2;
-// 					break;
-// 			}
-// 		}, 1500);
-// 	}
+	const preloaderText = document.querySelector('.preloader-text');
+	let dots = 1;
+	setInterval(() => {
+		switch (dots) {
+			case 1:
+				preloaderText.textContent = 'Loading...';
+				dots++;
+				break;
+			case 2:
+				preloaderText.textContent = 'Loading..';
+				dots++;
+				break;
+			case 3:
+				preloaderText.textContent = 'Loading.';
+				dots++;
+				break;
+			case 4:
+				preloaderText.textContent = 'Loading';
+				dots++;
+				break;
+			case 5:
+				preloaderText.textContent = 'Loading.';
+				dots++;
+				break;
+			case 6:
+				preloaderText.textContent = 'Loading..';
+				dots++;
+				break;
+			case 7:
+				preloaderText.textContent = 'Loading...';
+				dots = 1;
+				break;
+		}
+	}, 500);
+};
+preload();
 
-// 	const preloaderText = document.querySelector('.preloader-text');
-// 	let dots = 1;
-// 	setInterval(() => {
-// 		switch (dots) {
-// 			case 1:
-// 				preloaderText.textContent = 'Loading...';
-// 				dots++;
-// 				break;
-// 			case 2:
-// 				preloaderText.textContent = 'Loading..';
-// 				dots++;
-// 				break;
-// 			case 3:
-// 				preloaderText.textContent = 'Loading.';
-// 				dots++;
-// 				break;
-// 			case 4:
-// 				preloaderText.textContent = 'Loading';
-// 				dots++;
-// 				break;
-// 			case 5:
-// 				preloaderText.textContent = 'Loading.';
-// 				dots++;
-// 				break;
-// 			case 6:
-// 				preloaderText.textContent = 'Loading..';
-// 				dots++;
-// 				break;
-// 			case 7:
-// 				preloaderText.textContent = 'Loading...';
-// 				dots = 1;
-// 				break;
-// 		}
-// 	}, 500);
-// };
-// preload();
+// fade out function
 
-// // fade out function
-
-// const preloader = document.querySelector('.preloader');
-// function finishedLoading() {
-// 	preloader.style.opacity = '0';
-// 	setTimeout(() => {
-// 		preloader.style.display = 'none';
-// 	}, 500);
-// }
+const preloader = document.querySelector('.preloader');
+function finishedLoading() {
+	preloader.style.opacity = '0';
+	setTimeout(() => {
+		preloader.style.display = 'none';
+	}, 500);
+}
 
 // when dom is loaded: Fade out preloader after 5s, remove class="overflow-hidden" on html tag and enable content container
 document.addEventListener('DOMContentLoaded', () => {
 	const html = document.documentElement;
-	const sections = document.querySelector('#container');
 	setTimeout(() => {
 		finishedLoading();
-		html.removeAttribute('class', 'overflow-hidden');
-		sections.style.display = 'block';
+		html.className -= 'overflow-hidden';
 	}, 5000);
 });
 
@@ -105,6 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const scrollIndicatorElt = document.getElementById('scrollIndicator');
 const maxScrollableHeight = document.body.scrollHeight - window.innerHeight;
+
 window.addEventListener('scroll', moveScrollIndicator);
 
 function moveScrollIndicator() {
@@ -383,3 +378,39 @@ const observer = new IntersectionObserver(handleIntersect, options);
 document.querySelectorAll('.reveal').forEach(r => {
 	observer.observe(r);
 });
+
+// ****************** modal "mentions légales" ****************** //
+
+var modalBtn = document.querySelector('.modal-btn');
+var modalBg = document.querySelector('.modal-bg');
+var modalClose = document.querySelector('.modal-close');
+
+modalBtn.addEventListener('click', () => {
+	modalBg.classList.add('bg-active');
+})
+
+modalClose.addEventListener('click', () => {
+	modalBg.classList.remove('bg-active');
+})
+
+// Close modal when click anywhere outside of it
+window.onclick = function (event) {
+	if (event.target == modalBg) {
+		modalBg.classList.remove('bg-active');
+	}
+}
+
+
+// hide/show sroll to top button when scrollY = 575px
+const scrollToTop = document.querySelector('.scroll-to-top');
+window.addEventListener('scroll', showScrollToTop);
+
+function showScrollToTop() {
+	var scrollYPosition = window.scrollY;
+
+	if (scrollYPosition >= 575) {
+		scrollToTop.style.opacity = "1";
+	} else if (scrollYPosition < 575) {
+		scrollToTop.style.opacity = "0";
+	}
+}
