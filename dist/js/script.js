@@ -182,7 +182,7 @@ window.onload = () => {
 		// console.log(this.pageYOffset);
 		// PageYOffset shows how many pixels the window scroll vertically. Divided by 2 to be half of the effectiveness
 		title.style.transform = 'translateY(' + this.pageYOffset / 2 + '%)';
-		typingText.style.transform = 'translateY(' + this.pageYOffset / 2.5 + '%)';
+		typingText.style.transform = 'translateY(' + this.pageYOffset / 2.3 + '%)';
 	});
 };
 
@@ -407,10 +407,14 @@ window.addEventListener('scroll', showScrollToTop);
 
 function showScrollToTop() {
 	var scrollYPosition = window.scrollY;
+	var maxScrollYValue = document.body.scrollHeight;
 
-	if (scrollYPosition >= 575) {
+	// scroll-to-top's button visible at 10% of the max scrollable height
+	var scrollTopIconVisiblePosition = maxScrollYValue * (10 / 100);
+
+	if (scrollYPosition >= scrollTopIconVisiblePosition) {
 		scrollToTop.style.opacity = "1";
-	} else if (scrollYPosition < 575) {
+	} else if (scrollYPosition < scrollTopIconVisiblePosition) {
 		scrollToTop.style.opacity = "0";
 	}
 }

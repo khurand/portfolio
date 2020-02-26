@@ -96,73 +96,103 @@
 
 // Desktops & Laptops min 769px max 1170px
 @include mediaLg {
-	#home {
-		.title {
-			.lg-heading {
-				font-size: 4rem !important;
-			}
-		}
-		.typing-text {
-			align-items: center !important;
-			.text {
-				font-size: 1.5rem !important;
-			}
-		}
-	}
-	#services {
-		.downSide {
-			.service-title {
-				font-size: 14px !important;
-			}
-			.code-sign {
-				font-size: 2.6rem !important;
-			}
-		}
-	}
-	#contact {
-		.brand {
-			text-align: left;
-		}
-		.wrapper {
-			max-width: 100%;
-
-			& > * {
-				padding: 2em;
-			}
-
-			.info {
-				width: 50%;
-				font-size: 1.3rem;
-				padding: 0;
-
-				h3,
-				ul {
-					text-align: center;
+	.main {
+		padding: 0px 100px !important;
+		#home {
+			.content {
+				.switcher {
+					label {
+						transform: scale(1.5) !important;
+					}
 				}
-			}
-			.contact {
-				width: 50%;
-				padding: 0;
-				font-size: 1em;
+				.title {
+					.lg-heading {
+						font-size: 5rem !important;
+					}
+				}
+				.typing-text {
+					align-items: center !important;
+					.text {
+						font-size: 2rem !important;
+					}
+				}
 
-				#form {
-					max-width: 100%;
-
-					.checkboxes {
-						display: flex;
-						justify-content: center;
-						flex-wrap: wrap;
-						font-size: 1rem;
-						width: 100%;
-
-						.ckeck {
-							padding: 0;
-						}
+				.mouse {
+					display: none;
+				}
+				.finger {
+					display: flex;
+					animation: jump 1s infinite alternate ease;
+					a {
+						font-size: 3rem;
 					}
 
-					#entity {
-						width: 100%;
-						display: block;
+					@keyframes jump {
+						0% {
+							transform: translateY(0px);
+						}
+						100% {
+							transform: translateY(-10px);
+						}
+					}
+				}
+			}
+		}
+		#services {
+			.downSide {
+				.service-title {
+					font-size: 14px !important;
+				}
+				.code-sign {
+					font-size: 2.6rem !important;
+				}
+			}
+		}
+		#contact {
+			.brand {
+				text-align: left;
+			}
+			.wrapper {
+				max-width: 100%;
+
+				& > * {
+					padding: 2em;
+				}
+
+				.info {
+					width: 50%;
+					font-size: 1.3rem;
+					padding: 0;
+
+					h3,
+					ul {
+						text-align: center;
+					}
+				}
+				.contact {
+					width: 50%;
+					padding: 0;
+					font-size: 1em;
+
+					#form {
+						max-width: 100%;
+
+						.checkboxes {
+							display: flex;
+							justify-content: center;
+							flex-wrap: wrap;
+							font-size: 1rem;
+							width: 100%;
+
+							.ckeck {
+								padding: 0;
+							}
+						}
+
+						#entity {
+							width: 100%;
+							display: block;
+						}
 					}
 				}
 			}
@@ -174,7 +204,6 @@
 @include mediaMd {
 	//Navbar
 	#header {
-		padding: 0px 25px;
 		top: 0;
 		.navbar {
 			padding: 0px;
@@ -207,6 +236,11 @@
 		display: none;
 	}
 
+	.scroll-to-top {
+		bottom: 2.5% !important;
+		right: 2.5% !important;
+	}
+
 	//main content
 	#container {
 		height: 100%;
@@ -230,7 +264,7 @@
 					.title {
 						margin-bottom: 50px;
 						h1 {
-							font-size: 4em;
+							font-size: 4.5rem;
 						}
 					}
 					.text {
@@ -242,10 +276,33 @@
 					.typing-text {
 						display: flex;
 						align-items: flex-start;
+
+						.text {
+							font-size: 1rem;
+						}
 					}
 
 					.mouse {
 						display: none;
+					}
+
+					.finger {
+						display: flex;
+						animation: jump 1s infinite alternate ease;
+
+						a {
+							font-size: 3rem;
+							margin: 0;
+						}
+
+						@keyframes jump {
+							0% {
+								transform: translateY(0px);
+							}
+							100% {
+								transform: translateY(-10px);
+							}
+						}
 					}
 				}
 			}
@@ -298,6 +355,10 @@
 
 					.techs {
 						grid-area: techs;
+
+						p {
+							padding: 10px 0px;
+						}
 						.tech-list {
 							width: 80%;
 							margin: 0px auto;
@@ -330,11 +391,11 @@
 
 			//works
 			#works {
-				padding: 100px 0px;
 				.works {
+					padding: 0;
+
 					.work {
 						margin-bottom: 75px !important;
-						min-height: 100% !important;
 
 						.work-info {
 							grid-column: 1 / -1 !important;
@@ -351,10 +412,6 @@
 
 							h5 {
 								font-size: 18px !important;
-							}
-
-							.tech-list {
-								margin: 0;
 							}
 
 							.link-wrapper {
@@ -432,17 +489,20 @@
 
 			// Services
 			#services {
-				width: 100%;
 				.downSide {
 					width: 100%;
 					padding: 0;
 
 					.services-container {
-						display: block !important;
+						display: flex !important;
+						flex-direction: column;
+						justify-content: center;
+						align-items: center;
 						width: 100% !important;
 						padding: 50px;
 						padding-top: 0px;
 						padding-bottom: 0px;
+						height: 100%;
 					}
 
 					.service-box {
@@ -478,11 +538,19 @@
 				margin-top: 50px;
 				padding: 1rem;
 				width: 100%;
+				height: 100%;
+
 				.about {
-					display: block;
+					display: flex;
+					flex-direction: column;
+					justify-content: space-around;
+					align-items: center;
+					width: 100%;
+					margin: 0;
 
 					.bio {
 						width: 100%;
+						padding: 0;
 					}
 
 					.pict {
@@ -494,7 +562,20 @@
 					}
 
 					.techs {
-						margin-bottom: 20px;
+						margin-bottom: 60px;
+
+						p {
+							text-align: left;
+						}
+
+						.tech-list {
+							display: grid;
+							grid-template-columns: auto auto;
+						}
+					}
+
+					.tldr {
+						display: block;
 					}
 				}
 			}
@@ -573,7 +654,19 @@
 
 //Smartphones under 450px
 @include mediaXs {
+	.scroll-to-top {
+		width: 30px !important;
+		height: 30px !important;
+
+		.gotoTop-icon {
+			padding: 10px;
+			font-size: 0.8rem !important;
+		}
+	}
+
 	#header {
+		width: 100%;
+		padding: 0px 20px;
 		.side-menu {
 			padding: 5px !important;
 		}
@@ -588,9 +681,12 @@
 
 			// Home
 			#home {
-				height: 100vh;
-				width: 100vw;
 				.content {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					justify-content: center;
+					padding: 10px;
 					.switcher {
 						margin-left: 20px;
 					}
@@ -606,41 +702,47 @@
 
 			// Services
 			#services {
-				display: block;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				width: 100%;
+
 				.downSide {
-					width: 100%;
 					padding: 0;
+					margin: 0;
+					display: block;
 
 					.services-container {
-						display: block !important;
-						width: 100% !important;
-						padding: 10px;
-						padding-top: 0px;
-						padding-bottom: 0px;
-					}
-
-					.service-box {
+						width: 100%;
 						display: flex;
-						flex-direction: column;
+						justify-content: center;
 						align-items: center;
-						justify-content: space-around;
-						padding: 0 !important;
+						flex-direction: column;
 
-						.service-icon {
-							font-size: 1.9em;
-						}
+						.service-box {
+							display: flex;
+							flex-direction: column;
+							align-items: center;
+							justify-content: space-around;
+							padding: 0 !important;
 
-						.service-title {
-							font-size: 0.95rem !important;
-						}
+							.service-icon {
+								font-size: 1.9em;
+							}
 
-						.service-desc {
-							font-size: 1.1em;
-						}
+							.service-title {
+								font-size: 1.1rem !important;
+							}
 
-						&:last-child {
-							.code-sign {
-								font-size: 1.5em;
+							.service-desc {
+								font-size: 1em;
+							}
+
+							&:last-child {
+								.code-sign {
+									font-size: 1em;
+								}
 							}
 						}
 					}
@@ -653,6 +755,8 @@
 				flex-direction: column;
 				justify-content: space-around;
 				align-items: center;
+				padding: 0;
+
 				.about {
 					.pict {
 						margin: 0;

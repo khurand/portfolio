@@ -3,12 +3,11 @@
 	grid-template-rows: 5% 95%;
 	align-items: center;
 	justify-items: center;
+	max-width: 1600px;
 
 	.downSide {
 		width: 100%;
 		padding: 10px 50px;
-		max-width: 1600px;
-		min-width: 100%;
 
 		.services-container {
 			display: grid;

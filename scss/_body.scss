@@ -34,7 +34,7 @@ html {
 		.scroll-to-top {
 			position: fixed;
 			right: 30px;
-			bottom: 50%;
+			bottom: 55%;
 			width: 50px;
 			height: 50px;
 			z-index: 5;
@@ -58,7 +58,7 @@ html {
 				}
 			}
 
-			.gotoTop {
+			.gotoTop-icon {
 				color: #eee;
 				font-size: 1.5rem;
 			}
@@ -83,7 +83,6 @@ html {
 
 				section {
 					height: 100%;
-					// width: 100%;
 					padding: 100px 0px 50px 0px;
 
 					.heading {
