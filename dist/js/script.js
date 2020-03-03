@@ -86,7 +86,7 @@ function finishedLoading() {
 	}, 500);
 }
 
-// when dom is loaded: Fade out preloader after 5s, remove class="overflow-hidden" on html tag and enable content container
+// when dom is loaded: Fade out preloader after 5s, remove class="overflow-hidden" on html tag.
 document.addEventListener('DOMContentLoaded', () => {
 	const html = document.documentElement;
 	setTimeout(() => {
@@ -173,88 +173,88 @@ function rotateBurger() {
 
 // ****************** Parallax on home section ****************** //
 
-window.onload = () => {
-	const title = document.querySelector('.content .title'),
-		typingText = document.querySelector('.content .typing-text');
+// window.onload = () => {
+// 	const title = document.querySelector('.content .title'),
+// 		typingText = document.querySelector('.content .typing-text');
 
-	// Event on scroll window
-	window.addEventListener('scroll', () => {
-		// console.log(this.pageYOffset);
-		// PageYOffset shows how many pixels the window scroll vertically. Divided by 2 to be half of the effectiveness
-		title.style.transform = 'translateY(' + this.pageYOffset / 2 + '%)';
-		typingText.style.transform = 'translateY(' + this.pageYOffset / 2.3 + '%)';
-	});
-};
+// 	// Event on scroll window
+// 	window.addEventListener('scroll', () => {
+// 		// console.log(this.pageYOffset);
+// 		// PageYOffset shows how many pixels the window scroll vertically. Divided by 2 to be half of the effectiveness
+// 		title.style.transform = 'translateY(' + this.pageYOffset / 2 + '%)';
+// 		typingText.style.transform = 'translateY(' + this.pageYOffset / 2.3 + '%)';
+// 	});
+// };
 
 // ****************** TypeWriter effect ****************** //
 
-class TypeWriter {
-	constructor(txtElement, words, wait = 3000) {
-		this.txtElement = txtElement;
-		this.words = words;
-		this.txt = '';
-		this.wordIndex = 0;
-		this.wait = parseInt(wait, 10);
-		this.type();
-		this.isDeleting = false;
-	}
+// class TypeWriter {
+// 	constructor(txtElement, words, wait = 3000) {
+// 		this.txtElement = txtElement;
+// 		this.words = words;
+// 		this.txt = '';
+// 		this.wordIndex = 0;
+// 		this.wait = parseInt(wait, 10);
+// 		this.type();
+// 		this.isDeleting = false;
+// 	}
 
-	type() {
-		// Current index of words
-		const current = this.wordIndex % this.words.length;
-		// Get full text of current word
-		const fullTxt = this.words[current];
+// 	type() {
+// 		// Current index of words
+// 		const current = this.wordIndex % this.words.length;
+// 		// Get full text of current word
+// 		const fullTxt = this.words[current];
 
-		// check if deleting
-		if (this.isDeleting) {
-			//Remove char
-			this.txt = fullTxt.substring(0, this.txt.length - 1);
-		} else {
-			//Add char
-			this.txt = fullTxt.substring(0, this.txt.length + 1);
-		}
+// 		// check if deleting
+// 		if (this.isDeleting) {
+// 			//Remove char
+// 			this.txt = fullTxt.substring(0, this.txt.length - 1);
+// 		} else {
+// 			//Add char
+// 			this.txt = fullTxt.substring(0, this.txt.length + 1);
+// 		}
 
-		// Insert txt into element
-		this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
+// 		// Insert txt into element
+// 		this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
 
-		// Initial Type speed
-		let typeSpeed = 200;
+// 		// Initial Type speed
+// 		let typeSpeed = 200;
 
-		if (this.isDeleting) {
-			typeSpeed /= 2;
-		}
+// 		if (this.isDeleting) {
+// 			typeSpeed /= 2;
+// 		}
 
-		// if word complete
-		if (!this.isDeleting && this.txt === fullTxt) {
-			// make pause at end
-			typeSpeed = this.wait;
-			//Set deleting to true
-			this.isDeleting = true;
-		} else if (this.isDeleting && this.txt === '') {
-			this.isDeleting = false;
+// 		// if word complete
+// 		if (!this.isDeleting && this.txt === fullTxt) {
+// 			// make pause at end
+// 			typeSpeed = this.wait;
+// 			//Set deleting to true
+// 			this.isDeleting = true;
+// 		} else if (this.isDeleting && this.txt === '') {
+// 			this.isDeleting = false;
 
-			//move to next word
-			// this.wordIndex++;
+// 			//move to next word
+// 			// this.wordIndex++;
 
-			//pause before start typing
-			typeSpeed = 500;
-		}
+// 			//pause before start typing
+// 			typeSpeed = 500;
+// 		}
 
-		setTimeout(() => this.type(), typeSpeed);
-	}
-}
-//Init On dom load
-document.addEventListener('DOMContentLoaded', init);
+// 		setTimeout(() => this.type(), typeSpeed);
+// 	}
+// }
+// //Init On dom load
+// document.addEventListener('DOMContentLoaded', init);
 
-//INIT App
-function init() {
-	const txtElement = document.querySelector('.txt-type');
-	const words = JSON.parse(txtElement.getAttribute('data-words'));
-	const wait = txtElement.getAttribute('data-wait');
+// //INIT App
+// function init() {
+// 	const txtElement = document.querySelector('.txt-type');
+// 	const words = JSON.parse(txtElement.getAttribute('data-words'));
+// 	const wait = txtElement.getAttribute('data-wait');
 
-	//Init TypeWriter
-	new TypeWriter(txtElement, words, wait);
-}
+// 	//Init TypeWriter
+// 	new TypeWriter(txtElement, words, wait);
+// }
 
 // ****************** Toggle light/dark mode ****************** //
 

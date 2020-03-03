@@ -26,36 +26,44 @@
 		.navbar {
 			color: $light-mode-text-color;
 
-			.logo {
-				.blocks {
-					.block {
-						background-color: $third-color;
-					}
+			.lg-heading {
+				font-size: 1.5rem;
+				color: $light-mode-text-color;
+				text-align: center;
+				display: flex;
+				margin-right: auto;
 
-					&:hover {
-						.block {
-							background-color: $light-mode-blue;
+				span {
+					color: $light-mode-blue;
+					font-weight: 300;
+					margin-left: 10px;
+					transition: 0.7s ease;
+				}
+			}
+
+			.navlink {
+				.list-items:hover {
+					color: $light-mode-blue !important;
+				}
+
+				.cv {
+					.cv-btn {
+						border: 1px solid $light-mode-blue !important;
+
+						&:hover,
+						&:focus,
+						&:active {
+							background-color: rgba($light-mode-blue, 0.09);
+							color: inherit;
 						}
 					}
 				}
 			}
 
-			.list-items:hover {
-				color: $light-mode-blue !important;
-			}
-			a {
+			.list-link {
 				&:before {
 					color: $light-mode-blue !important;
 				}
-			}
-
-			.cv {
-				a:hover {
-					color: $light-mode-blue !important ;
-				}
-			}
-			.cv-btn {
-				border: 1px solid $light-mode-blue !important;
 			}
 		}
 
@@ -87,6 +95,7 @@
 
 	#container {
 		background: $bkg-light-mode;
+
 		.heading {
 			color: $light-mode-text-color !important;
 
@@ -95,11 +104,26 @@
 			}
 		}
 		#home {
-			.lg-heading {
-				background: #fff;
-				color: $primary-color;
-				span {
-					color: $light-mode-blue;
+			&:after {
+				background-image: url(../img/bkg-light.jpg);
+				transition: 0.7s ease;
+			}
+
+			.title {
+				.button {
+					.btn {
+						color: inherit;
+						border-color: $light-mode-blue;
+						border-radius: 4px;
+						padding: 1.25rem 1.75rem;
+						text-decoration: none;
+						@include cubicTransition();
+
+						&:hover {
+							background-color: rgba($light-mode-blue, 0.07);
+							color: white;
+						}
+					}
 				}
 			}
 		}
