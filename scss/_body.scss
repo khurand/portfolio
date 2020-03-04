@@ -42,6 +42,7 @@ html {
 			align-items: center;
 			justify-content: center;
 			transition: all 0.3s ease;
+			opacity: 0;
 
 			&:hover {
 				transform: rotate(-45deg) scale(1.1);
@@ -77,39 +78,6 @@ html {
 				section {
 					height: 100%;
 					padding: 100px 0px 50px 0px;
-
-					.heading {
-						position: relative;
-						display: flex;
-						align-items: center;
-						width: 100%;
-						white-space: nowrap;
-						font-size: 26px;
-						margin: 40px 0px 40px;
-						font-weight: 600;
-						height: 45px;
-						color: #fff;
-
-						&:before {
-							counter-increment: section 1;
-							content: '0' counter(section) '.';
-							margin-right: 10px;
-							font-weight: normal;
-							color: $third-color;
-							font-size: 20px;
-							position: relative;
-						}
-
-						&:after {
-							content: '';
-							display: block;
-							height: 1px;
-							width: 300px;
-							background-color: #555;
-							position: relative;
-							margin-left: 20px;
-						}
-					}
 				}
 			}
 		}

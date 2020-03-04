@@ -35,11 +35,6 @@
 	#home {
 		.content {
 			padding: 0px 150px;
-			.title {
-				.lg-heading {
-					font-size: 5.5rem !important;
-				}
-			}
 		}
 	}
 	#contact {
@@ -147,7 +142,34 @@
 				padding: 0px 100px;
 
 				.title {
-					padding: 0px 25px;
+					margin-bottom: 50px;
+					h1 {
+						font-size: 1.5rem;
+					}
+
+					h2 {
+						font-size: 2.25rem;
+					}
+
+					h3 {
+						font-size: 3.25rem;
+					}
+
+					.button {
+						display: flex;
+						flex-direction: column;
+						justify-content: center;
+						align-items: center;
+						.btn,
+						.cv-btn {
+							color: white;
+							width: 50%;
+						}
+
+						.cv-btn {
+							display: none;
+						}
+					}
 				}
 			}
 		}
@@ -228,6 +250,10 @@
 		}
 		.lg-heading-initials {
 			display: flex !important;
+		}
+
+		.work-info .desc {
+			color: $primary-color !important;
 		}
 	}
 	//Navbar
@@ -323,7 +349,11 @@
 						}
 
 						h2 {
-							font-size: 60px;
+							font-size: 2.25rem;
+						}
+
+						h3 {
+							font-size: 3.25rem;
 						}
 
 						.button {
@@ -333,7 +363,8 @@
 							align-items: center;
 							.btn,
 							.cv-btn {
-								width: 50%;
+								color: white;
+								width: 75%;
 							}
 
 							.cv-btn {
@@ -442,9 +473,9 @@
 							z-index: 2;
 
 							.desc {
-								background-color: transparent !important;
-								box-shadow: none !important;
-								padding: 20px 0px !important;
+								background-color: rgba($secondary-color, 0.29) !important;
+								box-shadow: $box-shadow;
+								padding: 10px !important;
 							}
 
 							h5 {
@@ -456,8 +487,9 @@
 							}
 						}
 						.work-pict {
-							opacity: 0.25;
+							opacity: 0.5;
 							grid-column: 1 / -1 !important;
+							filter: grayscale(10%) contrast(1) brightness(90%);
 
 							.image {
 								min-height: 100% !important;
@@ -719,15 +751,15 @@
 			// Home
 			#home {
 				.content {
-					display: flex;
-					flex-direction: column;
-					align-items: center;
-					justify-content: flex-start;
 					padding: 30px 0px 0px 0px;
 
 					.title {
 						padding: 0px 15px;
 						margin: 0;
+						display: flex;
+						flex-direction: column;
+						align-items: flex-start;
+						justify-content: flex-start;
 
 						h1 {
 							font-size: 1rem;

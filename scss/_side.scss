@@ -46,7 +46,6 @@
 
 				&:hover {
 					color: $third-color;
-					@include cubicTransition();
 					transform: translateY(-5px) scale(1.3);
 				}
 

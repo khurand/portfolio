@@ -111,6 +111,8 @@ function moveScrollIndicator() {
 
 const maxScrollXValue = document.body.scrollWidth;
 
+console.log(maxScrollXValue)
+
 // when #header is at bottom
 if (maxScrollXValue < 450) {
 	let prevScrollPos = window.pageYOffset;
@@ -125,7 +127,7 @@ if (maxScrollXValue < 450) {
 		}
 		prevScrollPos = currentScrollPos;
 	};
-} else {
+} else if (maxScrollXValue > 450) {
 	// get previous vertical position of the window
 	let prevScrollPos = window.pageYOffset;
 
@@ -435,8 +437,9 @@ function showScrollToTop() {
 	var scrollTopIconVisiblePosition = maxScrollYValue * (10 / 100);
 
 	if (scrollYPosition >= scrollTopIconVisiblePosition) {
-		scrollToTop.style.display = "flex";
+		scrollToTop.style.opacity = "1";
 	} else if (scrollYPosition < scrollTopIconVisiblePosition) {
-		scrollToTop.style.display = "none";
+		scrollToTop.style.opacity = "0";
+
 	}
 }

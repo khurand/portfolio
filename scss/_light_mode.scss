@@ -121,16 +121,12 @@
 					.btn,
 					.cv-btn {
 						color: inherit;
+						background-color: rgba($light-mode-blue, 0.5);
 						border-color: $light-mode-blue;
 						border-radius: 4px;
 						padding: 1.25rem 1.75rem;
 						text-decoration: none;
 						@include cubicTransition();
-
-						&:hover {
-							background-color: rgba($light-mode-blue, 0.07);
-							color: white;
-						}
 					}
 				}
 
@@ -205,6 +201,7 @@
 				}
 
 				.desc {
+					color: white;
 					a:hover {
 						color: $light-mode-blue;
 					}

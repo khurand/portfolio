@@ -28,12 +28,16 @@
 		padding: 100px 300px;
 
 		.title {
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: flex-start;
+
 			h1 {
-				font-size: 1rem;
-				font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono',
-					'Lucida Console', Monaco, monospace;
-				font-weight: normal;
+				font-size: 1.5rem;
 				margin: 0px 0px 20px 3px;
+				color: #eee;
 			}
 
 			h2 {
@@ -43,7 +47,7 @@
 			}
 
 			h3 {
-				font-size: 4rem;
+				font-size: 2.8rem;
 				line-height: 1.1;
 				color: rgb(136, 146, 176);
 			}
@@ -61,23 +65,22 @@
 
 			.button {
 				width: 100%;
-				margin-top: 50px;
-				@include cubicTransition();
+				margin-top: 20px;
 
 				.btn,
 				.cv-btn {
-					width: 33%;
-					color: $third-color;
-					background-color: transparent;
-					font-size: 14px;
+					width: 40%;
+					color: white;
+					background-color: rgba($third-color, 0.5);
+					font-size: 1rem;
 					font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono',
 						'Lucida Console', Monaco, monospace;
-					line-height: 1;
+					// line-height: 1;
 					cursor: pointer;
 					margin-top: 50px;
-					border: 1px solid $third-color;
+					border: 3px solid $third-color;
 					border-radius: 4px;
-					padding: 1.25rem 1.75rem;
+					padding: 1rem 1.25rem;
 					text-decoration: none;
 					@include cubicTransition();
 					display: flex;
@@ -85,14 +88,13 @@
 					justify-content: space-between;
 
 					&:hover {
-						background-color: rgba($third-color, 0.09);
-						color: white;
 						transform: translateY(-5px);
+						box-shadow: $box-shadow;
 					}
 
 					.fas,
 					.far {
-						font-size: 1.5rem;
+						font-size: 1rem;
 					}
 				}
 
@@ -101,21 +103,5 @@
 				}
 			}
 		}
-
-		// .typing-text {
-		// 	height: 100px;
-		// 	width: 100%;
-		// 	display: flex;
-		// 	justify-content: center;
-		// 	align-items: flex-end;
-
-		// 	.text {
-		// 		font-size: 1rem;
-		// 		padding: 20px;
-		// 		height: 70px;
-		// 		width: 100%;
-		// 		text-align: center;
-		// 	}
-		// }
 	}
 }
