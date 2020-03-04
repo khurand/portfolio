@@ -109,23 +109,44 @@ function moveScrollIndicator() {
 
 // ****************** Hide header when scrolldown ****************** //
 
-// get previous vertical position of the window
-let prevScrollPos = window.pageYOffset;
-// call anonymous function on scroll
-window.onscroll = () => {
-	// Get vertical position after a scrolling
-	var currentScrollPos = window.pageYOffset;
+const maxScrollXValue = document.body.scrollWidth;
 
-	// if prev is superior than current, the header is visible. If not, the header is hidden.
-	if (prevScrollPos > currentScrollPos) {
-		document.getElementById('header').style.top = '0';
-	} else {
-		document.getElementById('header').style.top = '-100px';
-	}
+// when #header is at bottom
+if (maxScrollXValue < 450) {
+	let prevScrollPos = window.pageYOffset;
 
-	// then, the prev value is defined with the current value.
-	prevScrollPos = currentScrollPos;
-};
+	window.onscroll = () => {
+		var currentScrollPos = window.pageYOffset;
+
+		if (prevScrollPos > currentScrollPos) {
+			document.getElementById('header').style.bottom = '0';
+		} else {
+			document.getElementById('header').style.bottom = '-100px';
+		}
+		prevScrollPos = currentScrollPos;
+	};
+} else {
+	// get previous vertical position of the window
+	let prevScrollPos = window.pageYOffset;
+
+	// call anonymous function on scroll
+	window.onscroll = () => {
+		// Get vertical position after a scrolling
+		var currentScrollPos = window.pageYOffset;
+
+		// if prev is superior than current, the header is visible. If not, the header is hidden.
+		if (prevScrollPos > currentScrollPos) {
+			document.getElementById('header').style.top = '0';
+		} else {
+			document.getElementById('header').style.top = '-100px';
+		}
+
+		// then, the prev value is defined with the current value.
+		prevScrollPos = currentScrollPos;
+	};
+}
+
+
 
 // ****************** Slide menu burger ****************** //
 
@@ -401,7 +422,8 @@ window.onclick = function (event) {
 }
 
 
-// hide/show sroll to top button when scrollY = 575px
+// ****************** hide/show scroll to top button when scrollY = 10% ****************** //
+
 const scrollToTop = document.querySelector('.scroll-to-top');
 window.addEventListener('scroll', showScrollToTop);
 
@@ -413,8 +435,8 @@ function showScrollToTop() {
 	var scrollTopIconVisiblePosition = maxScrollYValue * (10 / 100);
 
 	if (scrollYPosition >= scrollTopIconVisiblePosition) {
-		scrollToTop.style.opacity = "1";
+		scrollToTop.style.display = "flex";
 	} else if (scrollYPosition < scrollTopIconVisiblePosition) {
-		scrollToTop.style.opacity = "0";
+		scrollToTop.style.display = "none";
 	}
 }

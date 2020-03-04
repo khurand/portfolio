@@ -4,24 +4,19 @@
 	}
 
 	.scroll-to-top {
-		color: #eee;
+		color: $light-mode-blue;
 		border: 2px solid $light-mode-blue;
 
 		&:hover {
 			transform: rotate(-45deg) scale(1.1);
-
-			.gotoTop {
-				color: $light-mode-blue;
-			}
 		}
 
-		.gotoTop {
+		.gotoTop-icon {
 			color: $light-mode-text-color;
-			font-size: 1.5rem;
 		}
 	}
 	#header {
-		background-color: $bkg-light-mode;
+		background-color: rgba($bkg-light-mode, 0.7);
 
 		.navbar {
 			color: $light-mode-text-color;
@@ -41,6 +36,12 @@
 				}
 			}
 
+			.lg-heading-initials {
+				.text-secondary-initial {
+					color: $light-mode-blue;
+				}
+			}
+
 			.navlink {
 				.list-items:hover {
 					color: $light-mode-blue !important;
@@ -56,6 +57,12 @@
 							background-color: rgba($light-mode-blue, 0.09);
 							color: inherit;
 						}
+					}
+				}
+
+				.switcher {
+					.label {
+						border: 2px solid $light-mode-text-color;
 					}
 				}
 			}
@@ -79,14 +86,14 @@
 	}
 
 	.left-side-container {
-		color: rgb(168, 178, 209) !important;
+		color: $light-mode-text-color !important;
 		.social-link:hover {
 			color: $light-mode-blue !important;
 		}
 	}
 
 	.right-side-container {
-		color: rgb(168, 178, 209) !important;
+		color: $light-mode-text-color !important;
 
 		a:hover {
 			color: $light-mode-blue !important;
@@ -111,7 +118,8 @@
 
 			.title {
 				.button {
-					.btn {
+					.btn,
+					.cv-btn {
 						color: inherit;
 						border-color: $light-mode-blue;
 						border-radius: 4px;
@@ -124,6 +132,10 @@
 							color: white;
 						}
 					}
+				}
+
+				.desc {
+					color: #fff;
 				}
 			}
 		}
