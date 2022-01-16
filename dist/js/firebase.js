@@ -128,7 +128,7 @@ function isEmail(email) {
 	);
 }
 
-//Check if phone format is valid (french)
+//Check if phone number format is valid (french)
 function isPhone(phone) {
 	return /^((\+)33|0)[0-9](\d{2}){4}$/.test(phone);
 }
